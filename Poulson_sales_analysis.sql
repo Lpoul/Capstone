@@ -39,7 +39,9 @@ select
 			from store_locations sl
 				join store_sales ss
 					on sl.Store_ID = ss.Store_ID
-						group by Region;
+						group by Region
+							order by Total_Monthly_Revenue desc;
+							
 
 -- Shows the Number of each product sold, How much the average transaction was, what product was being sold. Filtered for the Northwest region and Ordered by the most amount sold each month 
 select  date_format(Transaction_Date,'%Y %m') as Year_and_Month, count(Sale_Amount) as Num_Sold, avg(Sale_Amount) as Average_Transaction , p.Product,p.Categoryid
@@ -60,3 +62,13 @@ select ss.Store_ID, sl.State, sum(Sale_Amount) as Total_Sales_Revenue
 				where sl.State in ("Maryland","Massachusetts","Maine","New Jersey")
 					group by ss.Store_ID,sl.StoreLocation,sl.State
 						order by Total_Sales_Revenue DESC;
+
+
+-- Based on the revenue data from January 1, 2022 through December 31, 2025, the Northeast region generated $24.24 million.
+-- I believe the reason for the Northeast region outperforming the other regions,is because it simply has more states contributing revenue.
+-- Because the total revenue is directly impacted with the number of states contributing sales, expanding the bookstore’s presence into additional states within the East, South, and West regions would increase revenue in those areas.
+-- Currently the Northeast region generates more than triple the revenue of the other regions, if  EmporiUm expanded its bookstores by adding additional states to the other regions, they would see increases in total revenue.
+-- By adding more states to each region, EmporiUm can create more balanced regional performance and increase overall profit in the next quarter.
+-- Once profit increases in each region, I then propose to look into individual stores in each region to see which stores are out performing to see if we can apply what they are doing to our lower performing stores.
+
+
