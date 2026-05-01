@@ -1,5 +1,4 @@
 -- Sales Territory: Northeast Region
-
 select *
 from management;
 
@@ -55,7 +54,7 @@ select  date_format(Transaction_Date,'%Y %m') as Year_and_Month, count(Sale_Amou
 								order by Year_and_Month ASC ,Num_Sold DESC;
 
 -- This provides a ranking of the in-store sales performance by each store within the Northeast region
-select ss.Store_ID, sl.State, sum(Sale_Amount) as Total_Sales_Revenue
+select sl.StoreLocation, ss.Store_ID, sl.State, sum(Sale_Amount) as Total_Sales_Revenue
 	from store_sales ss 
 		join store_locations sl
 			on ss.store_ID = sl.store_ID
