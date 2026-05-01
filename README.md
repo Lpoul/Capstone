@@ -1,5 +1,7 @@
 # Capstone 1
 
-# EmporiUm Sales Analysis 
+# EmporiUm Sales Performance Analysis 
 
-This capstone analyzes the sales performance for the bookstore shain EmporiUm, that also sells technology, art supplies, and general merchandise across both in‑store and online market. Witin this repository you will find different answers to questions that my Manager Bo Heap has tasked me to do. My assigned sales territory is the Northwest region, with my assigned Manager Bo Heap. 
+This capstone project analyzes the sales performance of EmporiUm, a student focused bookstore chain. They also sell technology, art supplies, and general merchandise across their physical store and online stores.
+
+The goal of this analysis is to evaluate sales performance across regions, states, stores, and products. As well as  to identify opportunities for revenue growth. All analysis, SQL queries, and dashboard visuals were created based on the tasks assigned by my manager, Bo Heap, with my assigned sales territory being the Northwest region.
