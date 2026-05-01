@@ -52,6 +52,19 @@ select  date_format(Transaction_Date,'%Y %m') as Year_and_Month, count(Sale_Amou
 						where sl.State in ("Maryland","Massachusetts","Maine","New Jersey")
 							group by p.Categoryid, Year_and_Month,p.Product
 								order by Year_and_Month ASC ,Num_Sold DESC;
+                                
+-- Shows the Number of each product sold, How much the average transaction was, what product was being sold. Filtered for the Northwest region and Ordered by the most amount sold each month                                 
+select  date_format(Transaction_Date,'%Y %m') as Year_and_Month, count(Sale_Amount) as Num_Sold, avg(Sale_Amount) as Average_Transaction , ic.Category,p.Categoryid
+	from store_sales ss
+		join products p
+			on ss.ProdNum = p.ProdNum
+				join store_locations sl
+					on ss.Store_ID = sl.Store_ID
+						join inventory_categories ic
+							on p.Categoryid = ic.Categoryid
+								where sl.State in ("Maryland","Massachusetts","Maine","New Jersey")
+									group by p.Categoryid, Year_and_Month
+										order by Year_and_Month ASC ,Num_Sold DESC;
 
 -- This provides a ranking of the in-store sales performance by each store within the Northeast region
 select sl.StoreLocation, ss.Store_ID, sl.State, sum(Sale_Amount) as Total_Sales_Revenue
